@@ -17,14 +17,15 @@ Although Lexicon can be used outside of Laravel, most of the documentation assum
 other frameworks.  
 </p>
 
-# Requirements
+## Requirements
 
 The following versions of PHP are supported.
 
 - PHP 5.4
 - PHP 5.5
 - PHP 5.6
-- HHVM
+
+___
 
 ## Installation
 
@@ -38,9 +39,16 @@ Lexicon is a Composer package named `anomaly/lexicon`. To use it, simply add it 
 }
 ```
 
-After adding Lex to your composer.json file, simply use the class as normal.
+Next, update `app/config/app.php` to include a reference to this package's service provider in the providers array.
 
-# Syntax
+```language-php
+'providers' => [
+    'Anomaly\Lexicon\LexiconServiceProvider'
+]
+```
+___
+
+## Syntax
 
 ```language-php
 // Tag
@@ -57,6 +65,7 @@ After adding Lex to your composer.json file, simply use the class as normal.
 // Ordered attributes
 {{ tag "bar" "yang" }}
 ```
+___
 
 ## Views
 
@@ -105,21 +114,18 @@ view()->parse('Hello, {{ name }}!', ['name' => 'World'])->render(); // Outputs: 
 Take a look at the <a href="http://laravel.com/docs/master/views" target="laravel_views">Laravel Views Documentation</a> 
 to learn everything you can do with views, including the awesome View Composers.
 
+___
+
 ## Credits
 
 - [Osvaldo Brignoni](http://twitter.com/obrignoni)
+- Lexicon is inspired on the [PyroCMS Lex Parser](https://github.com/pyrocms/lex), created by [Dan Horrigan](https://twitter.com/dhrrgn). 
 
-Lexicon is inspired on the [PyroCMS Lex Parser](https://github.com/pyrocms/lex), created by [Dan Horrigan](https://twitter.com/dhrrgn). 
-
-We use the following composer packages.
+We use the following packages.
 
 - `illuminate/view`
 - `phpspec/phpspec`
 
-## License
+### License
 
-The MIT License (MIT). Please see License File for more information.
-
-## Contributing
-
-Please see [Contributing](contributing) for details.
+Lexicon is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
